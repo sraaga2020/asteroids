@@ -127,3 +127,6 @@ def run_asteroids():
             st.session_state.section = 'asteroids'
 
 run_asteroids()
+
+if st.button("Another fun game!"):
+    st.write("[The roles reverse . . . click here to turn back human and protect your planet from alien invasions!](https://replit.com/join/bbcgxuqkvh-sayanapudi)")
