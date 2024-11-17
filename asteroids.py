@@ -11,7 +11,7 @@ import time
 df = pd.read_csv('nasa.csv')
 
 # train models
-@st.cache
+@st.cache_data
 def train_models(df):
 
     label_encoder = LabelEncoder()
@@ -107,21 +107,23 @@ def run_asteroids():
             abs_mag = dtree_mag.predict(X_user)
             miss_dist = dtree_missdist.predict(X_user)
 
-            #st.write(abs_mag, miss_dist)
-
+            st.write("Launching . . .")
+            st.write("Your asteroid was this far from earth: ", str(abs_mag[0]), " km.")
             # classify asteroid risk
             if abs_mag < 16 and miss_dist < 7500:
-                st.write("You have accomplished your mission evil scientist! Your asteroid was on point and shattered the Earth into pieces! You are crowned emporer of the alien race!")
+                st.write("You have accomplished your mission, evil scientist! Your asteroid was on point and shattered the Earth into pieces! You are crowned emporer of the alien race!")
             elif abs_mag < 16 and miss_dist < 50000:
-                st.write("Impressive evil scientist! Your asteroid has caused mass destruction throughout the North American continent! It is a blow the humans will never recover from!")
+                st.write("Impressive, evil scientist! Your asteroid has caused mass destruction throughout the North American continent! It is a blow the humans will never recover from!")
             elif 16 <= abs_mag < 22 and miss_dist < 100000:
-                st.write("Hmmf. Not too bad evil scientist. But, your asteroid has only scared the little humans and sailed through Earth's orbit. DO BETTER.")
+                st.write("Hmmf. Not too bad, evil scientist. But, your asteroid has only scared the little humans and sailed through Earth's orbit. DO BETTER.")
             elif abs_mag >= 22 and miss_dist < 384400: 
-                st.write("You have failed your mission evil scientist! The asteroid you launched has barely touched Earth's orbit.")
+                st.write("You have failed your mission, evil scientist! The asteroid you launched has barely touched Earth's orbit.")
             elif abs_mag >= 25 or miss_dist >= 7500000:
-                st.write("You have failed your mission evil scientist! The asteroid you launched has harmlessly sailed past Earth.")
+                st.write("You have failed your mission, evil scientist! The asteroid you launched has harmlessly sailed past Earth.")
             else:
-                st.write("no risk")
+                st.write("You have failed your mission, evil scientist! The asteroid you launched has harmlessly sailed past Earth.")
         
         if st.button("Asteroids 101"):
             st.session_state.section = 'asteroids'
+
+run_asteroids()
