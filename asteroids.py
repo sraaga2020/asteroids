@@ -42,7 +42,7 @@ def run_asteroids():
     # story
     if st.session_state.section == 'story':
         st.title("Asteroid Attack")
-        
+        st.image("https://images.vexels.com/content/301767/preview/space-kawaii-alien-cartoon-character-e54455.png")
         # Story Section 1
         st.write("""
         Welcome evil alien scientist! You are from the planet Zorkon-9, and your goal is to destroy Earth.
@@ -112,17 +112,23 @@ def run_asteroids():
             # classify asteroid risk
             if abs_mag < 16 and miss_dist < 7500:
                 st.write("You have accomplished your mission, evil scientist! Your asteroid was on point and shattered the Earth into pieces! You are crowned emporer of the alien race!")
+                st.image("https://dailygalaxy.com/wp-content/uploads/2024/09/Could-a-Nuclear-Explosion-Redirect-an-Asteroid-New-Research-Says-Yes.jpg")
             elif abs_mag < 16 and miss_dist < 50000:
                 st.write("Impressive, evil scientist! Your asteroid has caused mass destruction throughout the North American continent! It is a blow the humans will never recover from!")
+                st.image("https://i0.wp.com/newspaceeconomy.ca/wp-content/uploads/2024/06/newspaceeconomy_picture_of_an_asteroid_striking_earth_cinematic_66f0fde4-b492-478a-8815-e063ac2ec0dd-1.png?w=1024&quality=80&ssl=1")
             elif 16 <= abs_mag < 22 and miss_dist < 100000:
                 st.write("Hmmf. Not too bad, evil scientist. But, your asteroid has only scared the little humans and sailed through Earth's orbit. DO BETTER.")
+                st.image("https://c02.purpledshub.com/uploads/sites/48/2024/06/chances-asteroid-hitting-earth.jpg?w=1880&webp=1")
             elif abs_mag >= 22 and miss_dist < 384400: 
                 st.write("You have failed your mission, evil scientist! The asteroid you launched has barely touched Earth's orbit.")
+                st.image("https://images.indianexpress.com/2024/09/asteroid-hitting-earth_32e2f4.jpg?w=640")
             elif abs_mag >= 25 or miss_dist >= 7500000:
                 st.write("You have failed your mission, evil scientist! The asteroid you launched has harmlessly sailed past Earth.")
+                st.image("https://images.indianexpress.com/2024/09/asteroid-hitting-earth_32e2f4.jpg?w=640")
             else:
                 st.write("You have failed your mission, evil scientist! The asteroid you launched has harmlessly sailed past Earth.")
-        
+                st.image("https://images.indianexpress.com/2024/09/asteroid-hitting-earth_32e2f4.jpg?w=640")
+                
         if st.button("Asteroids 101"):
             st.session_state.section = 'asteroids'
 
